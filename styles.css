@@ -1,0 +1,22 @@
+body {
+  background: url(images/istockphoto-588966244-170667a.jpg) no-repeat center
+    center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+  max-width: 600px;
+}
+.btn {
+  background: #fc9803;
+  color: #fff;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.btn:focus {
+  outline: none !important;
+}
