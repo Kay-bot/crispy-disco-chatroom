@@ -1,8 +1,3 @@
-//adding new chat documents
-//setting up a real-time listener to get new chats
-//updating the username
-//updating the room
-
 class Chatroom {
   constructor(room, username) {
     this.room = room;
@@ -11,7 +6,7 @@ class Chatroom {
     this.unsub;
   }
   async addChat(message) {
-    //   format a chat object
+    // format a chat object
     const now = new Date();
     const chat = {
       message: message,
@@ -30,7 +25,6 @@ class Chatroom {
       .onSnapshot((snapshot) => {
         snapshot.docChanges().forEach((change) => {
           if (change.type === "added") {
-            // update the ui
             callback(change.doc.data());
           }
         });
@@ -38,6 +32,7 @@ class Chatroom {
   }
   updateName(username) {
     this.username = username;
+    localStorage.setItem("username", username);
   }
   updateRoom(room) {
     this.room = room;
@@ -48,17 +43,11 @@ class Chatroom {
   }
 }
 
-const chatroom = new Chatroom("general", "yoda");
-
-chatroom.getChats((data) => {
-  console.log(data);
-});
-
-setTimeout(() => {
-  chatroom.updateRoom("gaming");
-  chatroom.updateName("yoshi");
-  chatroom.getChats((data) => {
-    console.log(data);
-  });
-  chatroom.addChat("hello");
-}, 3000);
+// setTimeout(() => {
+//   chatroom.updateRoom("gaming");
+//   chatroom.updateName("yoshi");
+//   chatroom.getChats((data) => {
+//     console.log(data);
+//   });
+//   chatroom.addChat("hello");
+// }, 3000);
